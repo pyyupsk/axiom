@@ -84,7 +84,7 @@ Axiom is powered by:
 
 ## 🎨 Screenshots
 
-[![Home Page](https://axiom-nextjs.vercel.app/opengraph.png)](https://axiom-nextjs.vercel.app/)
+[![Home Page](https://axiom-boilerplate.vercel.app/opengraph.png)](https://axiom-boilerplate.vercel.app/)
 
 _Modern, responsive design with Tailwind CSS and Shadcn/UI._
 
