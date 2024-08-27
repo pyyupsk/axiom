@@ -122,9 +122,9 @@ export default function Page() {
                                         key={alt}
                                         src={src}
                                         alt={alt}
-                                        width={64}
-                                        height={64}
-                                        className="size-16"
+                                        width={100}
+                                        height={100}
+                                        className="h-16 w-auto"
                                     />
                                 ))}
                             </div>

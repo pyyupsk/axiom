@@ -42,6 +42,7 @@ export const Snippet = memo(({ command, className }: { command: string; classNam
                         copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100',
                     )}
                 />
+                <span className="sr-only">Copy to clipboard</span>
             </Button>
         </div>
     );
