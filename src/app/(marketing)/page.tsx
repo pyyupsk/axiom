@@ -1,5 +1,6 @@
 import { buttonVariants } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
+import { Cover } from '@/components/ui/cover';
 import { Snippet } from '@/components/ui/snippet';
 import { Terminal } from '@/components/ui/terminal';
 import { commonMetaData } from '@/lib/meta';
@@ -35,7 +36,7 @@ export default function Page() {
                 <Container className="container relative flex h-[calc(100vh-3.5rem)] max-h-dvh flex-col items-center justify-center py-32">
                     <h1 className="max-w-2xl text-center">
                         <Balancer>
-                            Supercharge Your Development{' '}
+                            <Cover>Supercharge</Cover> Your Development{' '}
                             <span className="text-highlight">Axiom</span>
                         </Balancer>
                     </h1>
