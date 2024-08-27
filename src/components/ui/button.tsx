@@ -6,36 +6,36 @@ import * as React from 'react';
 const buttonVariants = cva(
     'inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
     {
+        defaultVariants: {
+            rounded: 'default',
+            size: 'default',
+            variant: 'default',
+        },
         variants: {
-            variant: {
-                default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-                destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-                outline:
-                    'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-                secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-                ghost: 'hover:bg-accent hover:text-accent-foreground',
-                link: 'text-primary underline-offset-4 hover:underline',
-                transparent: 'bg-transparent hover:bg-transparent',
+            rounded: {
+                default: 'rounded-md',
+                full: 'rounded-full',
+                lg: 'rounded-lg',
+                sm: 'rounded-sm',
             },
             size: {
                 default: 'h-9 px-4 text-xs',
-                sm: 'h-8 px-3 text-xs',
-                md: 'h-10 px-5 py-2 text-sm',
-                lg: 'h-11 px-9 text-base',
                 icon: 'size-10',
                 iconx: 'size-9',
+                lg: 'h-11 px-9 text-base',
+                md: 'h-10 px-5 py-2 text-sm',
+                sm: 'h-8 px-3 text-xs',
             },
-            rounded: {
-                default: 'rounded-md',
-                sm: 'rounded-sm',
-                lg: 'rounded-lg',
-                full: 'rounded-full',
+            variant: {
+                default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+                destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+                ghost: 'hover:bg-accent hover:text-accent-foreground',
+                link: 'text-primary underline-offset-4 hover:underline',
+                outline:
+                    'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+                secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+                transparent: 'bg-transparent hover:bg-transparent',
             },
-        },
-        defaultVariants: {
-            variant: 'default',
-            size: 'default',
-            rounded: 'default',
         },
     },
 );
@@ -47,11 +47,11 @@ interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
+    ({ asChild = false, className, rounded, size, variant, ...props }, ref) => {
         const Comp = asChild ? Slot : 'button';
         return (
             <Comp
-                className={cn(buttonVariants({ variant, size, rounded, className }))}
+                className={cn(buttonVariants({ className, rounded, size, variant }))}
                 ref={ref}
                 {...props}
             />

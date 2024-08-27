@@ -8,15 +8,16 @@ import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
+
 import { commands } from './_constants/commands';
 import { features } from './_constants/features';
 import { techStack } from './_constants/techstack';
 
 export function generateMetadata() {
     const metaData = commonMetaData({
-        title: 'The Ultimate Next.js Boilerplate for Scalable Web Applications"',
         description:
             'Supercharge your web development with Axiom, a modern boilerplate featuring Next.js, TypeScript, Prisma, NextAuth.js, and Tailwind CSS. Build scalable, high-performance applications with speed and ease.',
+        title: 'The Ultimate Next.js Boilerplate for Scalable Web Applications"',
     });
 
     return metaData;
@@ -47,20 +48,20 @@ export default function Page() {
                         </Balancer>
                     </p>
                     <Link
+                        className={buttonVariants({
+                            className: 'mt-6',
+                            rounded: 'full',
+                            size: 'lg',
+                        })}
                         href="https://github.com/pyyupsk/axiom"
                         target="_blank"
-                        className={buttonVariants({
-                            size: 'lg',
-                            rounded: 'full',
-                            className: 'mt-6',
-                        })}
                     >
                         Get Started
                         <ArrowRightIcon className="ml-2 size-4" />
                     </Link>
                     <Snippet
-                        command="git clone https://github.com/pyyupsk/axiom.git"
                         className="mt-4 hidden border-none bg-transparent md:flex"
+                        command="git clone https://github.com/pyyupsk/axiom.git"
                     />
                 </Container>
             </section>
@@ -74,13 +75,13 @@ export default function Page() {
                         your next web development project
                     </p>
                     <div className="mt-12 grid items-start gap-8 lg:grid-cols-2">
-                        <Terminal commands={commands} className="min-h-96" />
+                        <Terminal className="min-h-96" commands={commands} />
                         <div className="grid grid-cols-1 divide-y">
-                            {features.map(({ title, icon: Icon, description }, index) => (
+                            {features.map(({ description, icon: Icon, title }, index) => (
                                 <Container
-                                    key={title}
-                                    delay={index * 0.1}
                                     className="flex items-start space-x-4 py-6"
+                                    delay={index * 0.1}
+                                    key={title}
                                 >
                                     <div className="flex items-center justify-center rounded-md bg-primary/5 p-4">
                                         <Icon className="size-8" />
@@ -111,21 +112,21 @@ export default function Page() {
                     </p>
                 </Container>
                 <div className="container mt-8 grid grid-cols-1 divide-y divide-primary/10 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-                    {techStack.map(({ title, description, logos }, index) => (
+                    {techStack.map(({ description, logos, title }, index) => (
                         <Container
-                            key={title}
-                            delay={index * 0.1}
                             className="flex flex-col items-center py-6 lg:px-6"
+                            delay={index * 0.1}
+                            key={title}
                         >
                             <div className="flex space-x-4">
-                                {logos.map(({ src, alt }) => (
+                                {logos.map(({ alt, src }) => (
                                     <Image
+                                        alt={alt}
+                                        className="h-16 w-auto"
+                                        height={100}
                                         key={alt}
                                         src={src}
-                                        alt={alt}
                                         width={100}
-                                        height={100}
-                                        className="h-16 w-auto"
                                     />
                                 ))}
                             </div>
@@ -155,12 +156,12 @@ export default function Page() {
                         </Balancer>
                     </p>
                     <Link
+                        className={buttonVariants({
+                            className: 'mt-6',
+                            size: 'lg',
+                        })}
                         href="https://github.com/pyyupsk/axiom"
                         target="_blank"
-                        className={buttonVariants({
-                            size: 'lg',
-                            className: 'mt-6',
-                        })}
                     >
                         Get Started
                         <ArrowRightIcon className="ml-2 size-4" />

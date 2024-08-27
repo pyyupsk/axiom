@@ -104,6 +104,9 @@ importers:
             eslint-config-prettier:
                 specifier: ^9.1.0
                 version: 9.1.0(eslint@8.57.0)
+            eslint-plugin-perfectionist:
+                specifier: ^3.2.0
+                version: 3.2.0(eslint@8.57.0)(typescript@5.4.5)
             eslint-plugin-prettier:
                 specifier: ^5.2.1
                 version: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
@@ -2487,6 +2490,28 @@ packages:
         peerDependencies:
             eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
+    eslint-plugin-perfectionist@3.2.0:
+        resolution:
+            {
+                integrity: sha512-cX1aztMbSfRWPKJH8CD+gadrbkS+RNH1OGWuNGws8J6rHzYYhawxWTU/yzMYjq2IRJCpBCfhgfa7BHRXQYxLHA==,
+            }
+        engines: { node: ^18.0.0 || >=20.0.0 }
+        peerDependencies:
+            astro-eslint-parser: ^1.0.2
+            eslint: '>=8.0.0'
+            svelte: '>=3.0.0'
+            svelte-eslint-parser: ^0.41.0
+            vue-eslint-parser: '>=9.0.0'
+        peerDependenciesMeta:
+            astro-eslint-parser:
+                optional: true
+            svelte:
+                optional: true
+            svelte-eslint-parser:
+                optional: true
+            vue-eslint-parser:
+                optional: true
+
     eslint-plugin-prettier@5.2.1:
         resolution:
             {
@@ -3628,6 +3653,13 @@ packages:
             }
         engines: { node: '>=18' }
 
+    minimatch@10.0.1:
+        resolution:
+            {
+                integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==,
+            }
+        engines: { node: 20 || >=22 }
+
     minimatch@3.1.2:
         resolution:
             {
@@ -3686,6 +3718,12 @@ packages:
             }
         engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
         hasBin: true
+
+    natural-compare-lite@1.4.0:
+        resolution:
+            {
+                integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==,
+            }
 
     natural-compare@1.4.0:
         resolution:
@@ -6791,6 +6829,17 @@ snapshots:
             safe-regex-test: 1.0.3
             string.prototype.includes: 2.0.0
 
+    eslint-plugin-perfectionist@3.2.0(eslint@8.57.0)(typescript@5.4.5):
+        dependencies:
+            '@typescript-eslint/types': 8.3.0
+            '@typescript-eslint/utils': 8.3.0(eslint@8.57.0)(typescript@5.4.5)
+            eslint: 8.57.0
+            minimatch: 10.0.1
+            natural-compare-lite: 1.4.0
+        transitivePeerDependencies:
+            - supports-color
+            - typescript
+
     eslint-plugin-prettier@5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3):
         dependencies:
             eslint: 8.57.0
@@ -7469,6 +7518,10 @@ snapshots:
 
     mimic-function@5.0.1: {}
 
+    minimatch@10.0.1:
+        dependencies:
+            brace-expansion: 2.0.1
+
     minimatch@3.1.2:
         dependencies:
             brace-expansion: 1.1.11
@@ -7496,6 +7549,8 @@ snapshots:
             thenify-all: 1.6.0
 
     nanoid@3.3.7: {}
+
+    natural-compare-lite@1.4.0: {}
 
     natural-compare@1.4.0: {}
 

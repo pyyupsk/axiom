@@ -7,6 +7,7 @@ import { useScroll } from '@/hooks/use-scroll';
 import { cn } from '@/lib/utils';
 import { Menu, Zap } from 'lucide-react';
 import Link from 'next/link';
+
 import { navigation } from '../_constants/navigation';
 import { SignIn } from './sign-in';
 
@@ -32,9 +33,9 @@ export function Header() {
                                 {navigation.map((item) => (
                                     <li key={item.href}>
                                         <Link
+                                            className="text-muted-foreground transition-colors hover:text-foreground hover:underline"
                                             href={item.href}
                                             target={item.external ? '_blank' : undefined}
-                                            className="text-muted-foreground transition-colors hover:text-foreground hover:underline"
                                         >
                                             {item.title}
                                         </Link>
@@ -47,8 +48,8 @@ export function Header() {
                     <Sheet>
                         <SheetTrigger asChild>
                             <Button
-                                variant="ghost"
                                 className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+                                variant="ghost"
                             >
                                 <Menu className="size-6" />
                                 <span className="sr-only">Toggle Menu</span>
@@ -63,9 +64,9 @@ export function Header() {
                                 {navigation.map((item) => (
                                     <li key={item.href}>
                                         <Link
+                                            className="text-lg font-medium hover:underline"
                                             href={item.href}
                                             target={item.external ? '_blank' : undefined}
-                                            className="text-lg font-medium hover:underline"
                                         >
                                             {item.title}
                                         </Link>

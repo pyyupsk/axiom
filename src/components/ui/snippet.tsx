@@ -3,9 +3,10 @@
 import { cn } from '@/lib/utils';
 import { CheckIcon, CopyIcon } from 'lucide-react';
 import { memo, useCallback, useState } from 'react';
+
 import { Button } from './button';
 
-export const Snippet = memo(({ command, className }: { command: string; className?: string }) => {
+export const Snippet = memo(({ className, command }: { className?: string; command: string }) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = useCallback(async () => {
@@ -25,10 +26,10 @@ export const Snippet = memo(({ command, className }: { command: string; classNam
                 {command}
             </pre>
             <Button
-                variant="transparent"
-                size="iconx"
                 className="absolute right-1 top-2/4 size-9 -translate-y-2/4"
                 onClick={handleCopy}
+                size="iconx"
+                variant="transparent"
             >
                 <CheckIcon
                     className={cn(

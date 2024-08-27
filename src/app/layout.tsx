@@ -1,12 +1,13 @@
+import type { Metadata } from 'next';
+
 import { cn } from '@/lib/utils';
 import { fontHeading, fontMono, fontSans } from '@/styles/fonts';
 import '@/styles/globals.css';
-import type { Metadata } from 'next';
 import { Provider } from 'react-wrap-balancer';
 
 export const metadata: Metadata = {
-    title: 'Axiom Skeleton',
     description: 'Next.js TypeScript Tailwind CSS Template',
+    title: 'Axiom Skeleton',
 };
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {

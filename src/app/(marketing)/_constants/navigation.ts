@@ -1,13 +1,13 @@
 interface NavigationItem {
-    title: string;
-    href: string;
     external?: boolean;
+    href: string;
+    title: string;
 }
 
 export const navigation: NavigationItem[] = [
     {
-        title: 'GitHub',
-        href: 'https://github.com/pyyupsk/axiom',
         external: true,
+        href: 'https://github.com/pyyupsk/axiom',
+        title: 'GitHub',
     },
 ];

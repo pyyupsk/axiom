@@ -17,7 +17,7 @@ import Balancer from 'react-wrap-balancer';
 export function SignIn({ className }: { className?: string }) {
     return (
         <Dialog>
-            <DialogTrigger className={className} asChild>
+            <DialogTrigger asChild className={className}>
                 <Button rounded="full">Sign in</Button>
             </DialogTrigger>
             <DialogContent>

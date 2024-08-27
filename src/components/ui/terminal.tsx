@@ -9,7 +9,7 @@ export interface Command {
     output?: string | string[];
 }
 
-export function Terminal({ commands, className }: { commands: Command[]; className?: string }) {
+export function Terminal({ className, commands }: { className?: string; commands: Command[] }) {
     const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
     const [displayedInput, setDisplayedInput] = useState('');
     const [displayedOutput, setDisplayedOutput] = useState<string[]>([]);
@@ -91,7 +91,7 @@ export function Terminal({ commands, className }: { commands: Command[]; classNa
             <div className="p-4 font-mono text-sm">
                 <div className={className}>
                     {commands.slice(0, currentCommandIndex).map((command, index) => (
-                        <div key={index} className="mb-2">
+                        <div className="mb-2" key={index}>
                             <div className="flex items-center">
                                 <span className="mr-2 text-green-500">$</span>
                                 <span>{command.input}</span>
@@ -107,21 +107,21 @@ export function Terminal({ commands, className }: { commands: Command[]; classNa
                     ))}
                     <div className="flex items-center">
                         <span className="mr-2 text-green-500">$</span>
-                        <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                        <motion.span animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
                             {displayedInput}
                         </motion.span>
                         <AnimatePresence>
                             {showCursor && (
                                 <motion.span
-                                    initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
+                                    className="ml-1 inline-block h-4 w-2 bg-green-500"
                                     exit={{ opacity: 0 }}
+                                    initial={{ opacity: 0 }}
                                     transition={{
-                                        repeat: Infinity,
                                         duration: 0.7,
                                         ease: 'easeInOut',
+                                        repeat: Infinity,
                                     }}
-                                    className="ml-1 inline-block h-4 w-2 bg-green-500"
                                 />
                             )}
                         </AnimatePresence>
@@ -129,9 +129,9 @@ export function Terminal({ commands, className }: { commands: Command[]; classNa
                     <div className="ml-4 mt-1">
                         {displayedOutput.map((line, index) => (
                             <motion.div
-                                key={index}
-                                initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
+                                initial={{ opacity: 0 }}
+                                key={index}
                             >
                                 {line}
                             </motion.div>

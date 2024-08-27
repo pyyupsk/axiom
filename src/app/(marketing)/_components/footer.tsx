@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { navigation } from '../_constants/navigation';
 
 export function Footer() {
@@ -8,19 +9,19 @@ export function Footer() {
                 <p className="text-sm text-muted-foreground">
                     © {new Date().getFullYear()}{' '}
                     <Link
-                        href="https://github.com/pyyupsk/axiom"
-                        target="_blank"
-                        rel="noreferrer"
                         className="text-highlight underline"
+                        href="https://github.com/pyyupsk/axiom"
+                        rel="noreferrer"
+                        target="_blank"
                     >
                         Axiom
                     </Link>
                     , Made with ❤️ by{' '}
                     <Link
-                        href="https://github.com/pyyupsk"
-                        target="_blank"
-                        rel="noreferrer"
                         className="hover:underline"
+                        href="https://github.com/pyyupsk"
+                        rel="noreferrer"
+                        target="_blank"
                     >
                         @pyyupsk
                     </Link>
@@ -30,9 +31,9 @@ export function Footer() {
                         {navigation.map((item) => (
                             <li key={item.href}>
                                 <Link
+                                    className="text-sm text-muted-foreground transition-colors hover:text-foreground hover:underline"
                                     href={item.href}
                                     target={item.external ? '_blank' : undefined}
-                                    className="text-sm text-muted-foreground transition-colors hover:text-foreground hover:underline"
                                 >
                                     {item.title}
                                 </Link>

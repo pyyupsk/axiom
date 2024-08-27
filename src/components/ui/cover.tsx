@@ -34,28 +34,29 @@ export const Cover = ({
 
     return (
         <div
+            className="group/cover relative inline-block rounded-sm bg-foreground p-2 transition duration-200 hover:bg-foreground"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             ref={ref}
-            className="group/cover relative inline-block rounded-sm bg-foreground p-2 transition duration-200 hover:bg-foreground"
         >
             <AnimatePresence>
                 {hovered && (
                     <motion.div
-                        initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
+                        className="absolute inset-0 size-full overflow-hidden"
                         exit={{ opacity: 0 }}
+                        initial={{ opacity: 0 }}
                         transition={{
                             opacity: {
                                 duration: 0.2,
                             },
                         }}
-                        className="absolute inset-0 size-full overflow-hidden"
                     >
                         <motion.div
                             animate={{
                                 translateX: ['-50%', '0%'],
                             }}
+                            className="flex h-full w-[200%]"
                             transition={{
                                 translateX: {
                                     duration: 10,
@@ -63,23 +64,22 @@ export const Cover = ({
                                     repeat: Infinity,
                                 },
                             }}
-                            className="flex h-full w-[200%]"
                         >
                             <SparklesCore
                                 background="transparent"
-                                minSize={0.4}
-                                maxSize={1}
-                                particleDensity={500}
                                 className="size-full"
+                                maxSize={1}
+                                minSize={0.4}
                                 particleColor="#FFFFFF"
+                                particleDensity={500}
                             />
                             <SparklesCore
                                 background="transparent"
-                                minSize={0.4}
-                                maxSize={1}
-                                particleDensity={500}
                                 className="size-full"
+                                maxSize={1}
+                                minSize={0.4}
                                 particleColor="#FFFFFF"
+                                particleDensity={500}
                             />
                         </motion.div>
                     </motion.div>
@@ -87,31 +87,41 @@ export const Cover = ({
             </AnimatePresence>
             {beamPositions.map((position, index) => (
                 <Beam
-                    key={index}
-                    hovered={hovered}
-                    duration={Math.random() * 2 + 1}
                     delay={Math.random() * 2 + 1}
-                    width={containerWidth}
+                    duration={Math.random() * 2 + 1}
+                    hovered={hovered}
+                    key={index}
                     style={{
                         top: `${position}px`,
                     }}
+                    width={containerWidth}
                 />
             ))}
             <motion.span
-                key={String(hovered)}
                 animate={{
                     scale: hovered ? 0.8 : 1,
                     x: hovered ? [0, -30, 30, -30, 30, 0] : 0,
                     y: hovered ? [0, 30, -30, 30, -30, 0] : 0,
                 }}
+                className={cn(
+                    'relative z-20 inline-block text-background transition duration-200 group-hover/cover:text-background',
+                    className,
+                )}
                 exit={{
                     filter: 'none',
                     scale: 1,
                     x: 0,
                     y: 0,
                 }}
+                key={String(hovered)}
                 transition={{
                     duration: 0.2,
+                    filter: {
+                        duration: 0.2,
+                    },
+                    scale: {
+                        duration: 0.2,
+                    },
                     x: {
                         duration: 0.2,
                         repeat: Infinity,
@@ -122,17 +132,7 @@ export const Cover = ({
                         repeat: Infinity,
                         repeatType: 'loop',
                     },
-                    scale: {
-                        duration: 0.2,
-                    },
-                    filter: {
-                        duration: 0.2,
-                    },
                 }}
-                className={cn(
-                    'relative z-20 inline-block text-background transition duration-200 group-hover/cover:text-background',
-                    className,
-                )}
             >
                 {children}
             </motion.span>
@@ -162,38 +162,38 @@ export const Beam = ({
 
     return (
         <motion.svg
-            width={width ?? '600'}
+            className={cn('absolute inset-x-0 w-full', className)}
+            fill="none"
             height="1"
             viewBox={`0 0 ${width ?? '600'} 1`}
-            fill="none"
+            width={width ?? '600'}
             xmlns="http://www.w3.org/2000/svg"
-            className={cn('absolute inset-x-0 w-full', className)}
             {...svgProps}
         >
             <motion.path d={`M0 0.5H${width ?? '600'}`} stroke={`url(#svgGradient-${id})`} />
 
             <defs>
                 <motion.linearGradient
-                    id={`svgGradient-${id}`}
-                    key={String(hovered)}
-                    gradientUnits="userSpaceOnUse"
-                    initial={{
-                        x1: '0%',
-                        x2: hovered ? '-10%' : '-5%',
-                        y1: 0,
-                        y2: 0,
-                    }}
                     animate={{
                         x1: '110%',
                         x2: hovered ? '100%' : '105%',
                         y1: 0,
                         y2: 0,
                     }}
+                    gradientUnits="userSpaceOnUse"
+                    id={`svgGradient-${id}`}
+                    initial={{
+                        x1: '0%',
+                        x2: hovered ? '-10%' : '-5%',
+                        y1: 0,
+                        y2: 0,
+                    }}
+                    key={String(hovered)}
                     transition={{
+                        delay: hovered ? Math.random() * (1 - 0.2) + 0.2 : 0,
                         duration: hovered ? 0.5 : (duration ?? 2),
                         ease: 'linear',
                         repeat: Infinity,
-                        delay: hovered ? Math.random() * (1 - 0.2) + 0.2 : 0,
                         repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : (delay ?? 1),
                     }}
                 >
