@@ -8,14 +8,14 @@
 
 ## 🌟 Features
 
--   **Modern Framework + Type Safety**  
-    Next.js and TypeScript for robust, scalable applications with enhanced developer experience.
+- **Modern Framework + Type Safety**  
+   Next.js and TypeScript for robust, scalable applications with enhanced developer experience.
 
--   **Effortless Data + Secure Auth**  
-    Prisma ORM for seamless database management and NextAuth.js for secure authentication.
+- **Effortless Data + Secure Auth**  
+   Prisma ORM for seamless database management and NextAuth.js for secure authentication.
 
--   **Stylish UI + Ready Components**  
-    Tailwind CSS and Shadcn/UI for beautiful, responsive designs and pre-built components.
+- **Stylish UI + Ready Components**  
+   Tailwind CSS and Shadcn/UI for beautiful, responsive designs and pre-built components.
 
 ## 📖 Getting Started
 
@@ -75,12 +75,12 @@ When you’re ready to deploy, follow the deployment guide in the documentation 
 
 Axiom is powered by:
 
--   **Next.js**: The React framework for production.
--   **TypeScript**: Typed JavaScript at Any Scale.
--   **Prisma ORM**: Next-generation ORM for Node.js & TypeScript.
--   **NextAuth.js**: Authentication for Next.js apps.
--   **Tailwind CSS**: Utility-first CSS framework.
--   **Shadcn/UI**: Beautifully designed, customizable components.
+- **Next.js**: The React framework for production.
+- **TypeScript**: Typed JavaScript at Any Scale.
+- **Prisma ORM**: Next-generation ORM for Node.js & TypeScript.
+- **NextAuth.js**: Authentication for Next.js apps.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **Shadcn/UI**: Beautifully designed, customizable components.
 
 ## 🎨 Screenshots
 
